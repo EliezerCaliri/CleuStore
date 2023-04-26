@@ -1,9 +1,14 @@
 @extends('layouts.template')
 
+
 @section('title', 'Tela de Cadastro Do Cliente')
+
 @section('conteudo')
+
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+    
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
         *{
             padding: 0;
             margin: 0;
@@ -14,17 +19,11 @@
             width: 100%;
             height: 100vh;
             justify-content: center;
-            display: flex;
             align-items: center;
             background: #0c0ce94d;
         }
-        .container {
-            width: 80%;
-            height: 80vh;
-            display: flex;
-        }
+        
         .form {
-            width: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -36,6 +35,10 @@
             margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
+        }
+        .label-button{
+            margin: 10px;
+            font-weight: bold;
         }
         .login-button {
             display: flex;
@@ -118,52 +121,61 @@
         }
 </style>
 
+
  <div class="container">
         <div class="form">
-            <form action="#">
+            <form action="{{ route('login.store')}}" method="post">
+                @csrf
                 <div class="form-header">
                     <div class="title">
                         <h1>Cadastre-se</h1>
                     </div>
                     <div class="login-button">
-                        <button> <a href="#">Entrar</a></button>
+                        <label for="label-button" class="label-button">Faça Login </label>
+                        <button> <a href="#"> Entrar</a></button>
                     </div>
                 </div>
                 
                 <div class="input-group">
                     <div class="input-box">
                         <label for="firstname"> Primeiro Nome</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome" required>
+                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome" required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="lastname"> Sobrenome</label>
-                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu ultimo nome" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu ultimo nome"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="email"> Email</label>
-                        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                        <input type="email" id="email" name="email" placeholder="Digite seu email"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
                     
                     <div class="input-box">
                         <label for="number"> Numero de Telefone</label>
-                        <input type="tel" id="number" name="number" placeholder="Digite seu numero" required>
+                        <input type="tel" id="number" name="number" placeholder="Digite seu numero" required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="password"> Senha</label>
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="Confirmpassword"> Confirme sua Senha</label>
-                        <input type="password" id="Confirmpassword" name="Confirmpassword" placeholder="Digite sua senha" required>
+                        <input type="password" id="Confirmpassword" name="Confirmpassword" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                 </div>
                 <div class="continue-button">
-                    <button><a href="#">Cadastrar</a></button>
+                    <button type="submit">Cadastrar</button>
                 </div>
             </form>
 

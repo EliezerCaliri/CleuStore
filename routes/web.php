@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,12 @@ Route::get('/admin', function(){
     return view('admin.index');
 });
 
+Route::controller(LoginController::class)->group(function (){
+    Route::get('/login','index')->name('cadastro.index');
+    Route::post('/login','store')->name('login.store');
+    Route::get('/logout','destroy')->name('login.destroy');
+});
+
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
 
 Route::get('/produtos/novo', [ProdutosController::class, 'create'])->name('produtos.create');
@@ -40,7 +47,3 @@ Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->na
 Route::get('/categoria', [CategoriaController::class, 'create'])->name('categoria.index');
 
 Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
-
-Route::get ('/cadastro',function (){
-    return view('cadastro.index');
-});

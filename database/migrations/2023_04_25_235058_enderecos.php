@@ -21,13 +21,13 @@ return new class extends Migration
             $table->string("complemento");
             $table->timestamps();
 
-            $table->integer("usuarios_id")
+            $table->integer("login")
                 ->unsigned();
 
 
 
-            $table->foreign("usuarios_id")
-                ->references("id")->on("usuarios")
+            $table->foreign("login")
+                ->references("id")->on("login")
                 ->onDelete("cascade");
         });
     }
