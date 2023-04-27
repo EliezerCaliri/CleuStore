@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $table->datetime("datapedido", $precision = 0);
+            $table->datetime("datapedido");
             $table->string("status", 4);
-            $table->integer("login_id");
+            $table->bigInteger("cliente_id", false, true);
             $table->timestamps();
 
-
-            $table->foreign("login_id")
-                ->references("id")->on("login")
-                ->onDelete("cascade");
+            $table->foreign("cliente_id")
+                ->references("id")->on("clientes");
         });
     }
 

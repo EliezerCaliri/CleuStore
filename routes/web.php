@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProdutosController;
-use App\Http\Controllers\CategoriaController;
-use App\Http\Controllers\LoginController;
+
+use App\Http\Controllers\{
+    AdminController,
+    ProdutosController,
+    CategoriaController,
+    LoginController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +24,7 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-Route::get('/admin', function(){
-    return view('admin.index');
-});
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
 Route::controller(LoginController::class)->group(function (){
     Route::get('/login','index')->name('cadastro.index');
