@@ -23,6 +23,10 @@ use App\Http\Controllers\{
 Route::get('/', function () {
     return view('home.index');
 });
+Route::get('/cadastro', function () {
+    return view('cadastro.login');
+});
+
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
