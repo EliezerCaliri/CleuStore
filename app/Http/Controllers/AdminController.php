@@ -10,4 +10,10 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+    public function store(Request $request) {
+        $request -> validate([
+            'login' => 'required',
+            'password' => 'required'
+        ]);
+    }
 }

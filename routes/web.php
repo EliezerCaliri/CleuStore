@@ -29,6 +29,7 @@ Route::get('/cadastro', function () {
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
 
 Route::controller(LoginController::class)->group(function (){
     Route::get('/login','index')->name('cadastro.index');
