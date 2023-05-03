@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("complemento");
             $table->timestamps();
 
-            $table->bigInteger("cliente_id");
+            $table->bigInteger("cliente_id", false, true);
 
 
 

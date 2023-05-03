@@ -67,12 +67,14 @@ div.container div.image img{
 </style>
   <div class="container">
     <div class="myform">
-      <form method="post" action="{{ route('admin.store') }}">
+      <form method="post" action="{{ route('admin.store.do') }}">
+        @csrf
         <h2>Login de Administrador</h2>
-        <input type="text" placeholder="Admin Name" class="login" required>
+        <input type="text" placeholder="Email" class="login" required>
         <input type="password" placeholder="Password " class="password" required>
         <button type="submit">LOGIN</button>
       </form>
+      <button> <a href="/admincad">Cadastre-se</a></button>
     </div>
     <div class="image">
       <img src="/public/img/logocleustore.png">

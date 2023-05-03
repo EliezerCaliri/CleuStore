@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\{
     AdminController,
     ProdutosController,
     CategoriaController,
-    LoginController
+    LoginController,
+    CadastroAdmController
 };
 
 /*
@@ -19,7 +21,6 @@ use App\Http\Controllers\{
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('home.index');
 });
@@ -27,9 +28,12 @@ Route::get('/cadastro', function () {
     return view('cadastro.login');
 });
 
+Route::get('/admincad', [CadastroAdmController::class, 'index'])->name('cadastroadm.index');
+Route::post('/admincad/cad', [CadastroAdmController::class, 'store'])->name('cadastroadm.store');
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/admin/login', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin', [AdminController::class, 'showloginform'])->name('admin.paineladmin');
+Route::post('/admin/login/do', [AdminController::class, 'store'])->name('admin.store.do');
 
 Route::controller(LoginController::class)->group(function (){
     Route::get('/login','index')->name('cadastro.index');
@@ -54,3 +58,7 @@ Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->na
 Route::get('/categoria', [CategoriaController::class, 'create'])->name('categoria.index');
 
 Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
+
+
+Auth::routes();
+
