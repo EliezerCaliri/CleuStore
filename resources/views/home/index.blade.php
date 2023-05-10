@@ -3,7 +3,7 @@
 @section('title', 'Bem vindo a Cleustore')
 
 @section('conteudo')
-<section class="py-5">
+        <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
@@ -77,13 +77,11 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-<<<<<<< HEAD
-=======
                             <img class="card-img-top" src="../img/loja.jpg" alt="..." />
->>>>>>> 231d1a3afdb9685764718a12f56a9d15cc1d090f
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -107,6 +105,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
