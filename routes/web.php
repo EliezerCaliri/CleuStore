@@ -8,7 +8,9 @@ use App\Http\Controllers\{
     ProdutosController,
     CategoriaController,
     LoginController,
-    CadastroAdmController
+    CadastroAdmController,
+    HomeController,
+    UsuarioController
 };
 
 /*
@@ -21,24 +23,29 @@ use App\Http\Controllers\{
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('home.index');
-});
-Route::get('/cadastro', function () {
-    return view('cadastro.login');
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+// Grupo que exige auteticação do usuário
+Route::middleware(['auth'])->group(function (){
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
-Route::get('/admincad', [CadastroAdmController::class, 'index'])->name('cadastroadm.index');
-Route::post('/admincad/cad', [CadastroAdmController::class, 'store'])->name('cadastroadm.store');
+Route::get('/admin/novo', [CadastroAdmController::class, 'index'])->name('cadastroadm.index');
+Route::post('/admin/novo', [CadastroAdmController::class, 'store'])->name('cadastroadm.store');
 
-Route::get('/admin/login', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin', [AdminController::class, 'showloginform'])->name('admin.paineladmin');
-Route::post('/admin/login/do', [AdminController::class, 'store'])->name('admin.store.do');
+Route::get('/entrar', [AdminController::class, 'showloginform'])->name('login');
+Route::get('/sair', [AdminController::class, 'logout'])->name('admin.logout');
+
+Route::post('/entrar', [AdminController::class, 'store'])->name('admin.login.store');
 
 Route::controller(LoginController::class)->group(function (){
-    Route::get('/login','index')->name('cadastro.index');
-    Route::post('/login','store')->name('login.store');
+    Route::get('/usuario/novo','index')->name('cadastro.index');
+    Route::post('/usuario','store')->name('login.store');
     Route::get('/logout','destroy')->name('login.destroy');
+});
+Route::controller(UsuarioController::class)->group(function (){       
+    route::get('/login/logar','usuario')->name('usuario.logar');
+    route::post('/login/logar','store')->name('usuario.store');
 });
 
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
@@ -58,7 +65,3 @@ Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->na
 Route::get('/categoria', [CategoriaController::class, 'create'])->name('categoria.index');
 
 Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
-
-
-Auth::routes();
-
