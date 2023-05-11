@@ -132,7 +132,7 @@
                     </div>
                     <div class="login-button">
                         <label for="label-button" class="label-button">Faça Login </label>
-                        <button> <a href="#"> Entrar</a></button>
+                        <button> <a href="{{ route('usuario.logar')}}"> Entrar</a></button>
                     </div>
                 </div>
                 

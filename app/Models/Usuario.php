@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Autenticatable;
 
-class Administrador extends Autenticatable
+class Usuario extends Autenticatable
 {
-    protected $table ="administradores";
+    protected $table ="usuarios";
     protected $fillable = [
         'name', 
         'email', 

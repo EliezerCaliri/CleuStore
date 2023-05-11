@@ -6,6 +6,7 @@ use App\Models\Administrador;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class CadastroAdmController extends Controller
 {
@@ -15,13 +16,19 @@ class CadastroAdmController extends Controller
 
     }
     public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ]);      
+
         $administradores = new Administrador();
 
 
         $administradores->name = $request->name;
         $administradores->email = $request->email;
-        $administradores->password = $request->password;
-        $administradores->password_confirmation = $request->password_confirmation;
+        $administradores->password = Hash::make($request->password);
+
         $administradores->save();
 
 
