@@ -83,7 +83,7 @@ div.container div.image img{
 
         <button type="submit">LOGIN</button>
       </form>
-      <button> <a href="/admincad">Cadastre-se</a></button>
+      <button> <a href="/admin/novo">Cadastre-se</a></button>
     </div>
 
     <div class="image">
