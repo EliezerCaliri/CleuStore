@@ -65,7 +65,11 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
+<<<<<<< HEAD
                                 <button type="submit" class="btn btn-primary" ><a href="admin/entrar"></a>
+=======
+                                <button type="submit" class="btn btn-primary"> <a href="{{ route ('login') }}"></a>
+>>>>>>> 8c7d2ac56e71f0355d2ec332878ad043d3c6e5df
                                     {{ __('Register') }}
                                 </button>
                             </div>
