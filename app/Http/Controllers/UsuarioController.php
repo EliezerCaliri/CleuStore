@@ -30,5 +30,10 @@ class UsuarioController extends Controller
             ]);
             return view ('home.index');
         }
+    
+}
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home.index');
 }
 }
