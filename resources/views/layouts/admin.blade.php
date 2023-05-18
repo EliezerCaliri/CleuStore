@@ -134,7 +134,7 @@
   <body>
     <header>
       <nav>
-        <a class="logo" href="{{ route('admin.index') }}">Bem vindo {{}}</a>
+        <a class="logo" href="{{ route('admin.index') }}">Bem vindo {{$admins->name}}</a>
         <div class="mobile-menu">
           <div class="line1"></div>
           <div class="line2"></div>
@@ -143,7 +143,7 @@
         <ul class="nav-list">
           <li><a href="#">Início</a></li>
           <li><a href="#">Sobre</a></li>
-          <li><a href="#">Projetos</a></li>
+          <li><a href="#">Produtos</a></li>
           <li><a href="#">Contato</a></li>
         </ul>
       </nav>
