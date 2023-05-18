@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Administrador;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view ('admin.paineladmin');
+        $administrador = Administrador::all();
+        return view ('admin.paineladmin',['admins' => $administrador]);
     }
 
     public function showloginform () 
