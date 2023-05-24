@@ -26,6 +26,7 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::any('/lista-produtos', [HomeController::class, 'listaProdutos'])->name('home.listaProdutos');
 // Grupo que exige auteticação do usuário
 Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -36,7 +37,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/produtos', [ProdutosController::class, 'store'])->name('produtos.store');
     Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('produtos.update');
     Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
-    
+
     Route::get('/categoria', [CategoriaController::class, 'create'])->name('categoria.index');
         Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');
 });
@@ -53,7 +54,7 @@ Route::controller(LoginController::class)->group(function (){
     Route::post('/usuario','store')->name('login.store');
     Route::get('/logout','destroy')->name('login.destroy');
 });
-Route::controller(UsuarioController::class)->group(function (){       
+Route::controller(UsuarioController::class)->group(function (){
     route::get('/login/logar','usuario')->name('usuario.logar');
     route::post('/login/logar','store')->name('usuario.store');
 });

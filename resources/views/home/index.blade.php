@@ -3,6 +3,16 @@
 @section('title', 'Bem vindo a Cleustore')
 
 @section('conteudo')
+
+        <header class="brand" style="background-color: #131313;">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center">
+                    <h1 class="display-4 fw-bolder text-white py-2"></h1>
+                    <img class="img-fluid" src="../img/logocleustore.png" alt="">
+                </div>
+            </div>
+        </header>
+
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 @foreach ($categorias as $categoria)
