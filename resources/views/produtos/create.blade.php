@@ -12,12 +12,16 @@
         <div class="container mb-3">
             <h1>Novo Produto</h1>
 
-            <form method="POST" action="{{ route('produtos.store') }}">
+            <form method="POST" action="{{ route('produtos.store') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-3">
                     <label>Nome</label>
-                    <input type="text" name="nome" class="form-control">
+                    <input type="text" name="nome" value="{{ old('nome') }}" class="form-control">
+
+                    @error('nome')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -29,9 +33,21 @@
                     <label>Foto</label>
                     <input type="file" name="foto" class="form-control">
                 </div>
+
                 <div class="mb-3">
                     <label>Categoria</label>
-                    <input type="text" name="categoria_id" class="form-control">
+
+                    <select class="form-control" name="categoria_id" id="categoria_id">
+                        <option value="">Selecione uma categoria</option>
+
+                        @foreach ($categorias as $categoria)
+                            <option value="{{ $categoria->id }}">{{ $categoria->categorias }}</option>
+                        @endforeach
+                    </select>
+
+                    @error('categoria_id')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">

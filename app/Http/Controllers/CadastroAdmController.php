@@ -18,9 +18,9 @@ class CadastroAdmController extends Controller
     public function store(Request $request){
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:administradores,email',
             'password' => 'required|confirmed'
-        ]);      
+        ]);
 
         $administradores = new Administrador();
 
@@ -32,6 +32,6 @@ class CadastroAdmController extends Controller
         $administradores->save();
 
 
-        return redirect()->route('cadastroadm.index');
+        return redirect()->route('login');
     }
 }

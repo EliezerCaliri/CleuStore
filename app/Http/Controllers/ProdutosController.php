@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -18,33 +19,43 @@ class ProdutosController extends Controller
 
     public function create()
     {
-        return view('produtos.create');
+        $categorias = Categoria::all();
+        return view('produtos.create', compact('categorias'));
     }
 
 
     public function store(Request $requisicao)
     {
+        $requisicao->validate([
+            'nome' => 'required',
+            'valor' => 'required',
+            'foto' => 'nullable|image|mimes:png,jpg,jpeg,gif|max:2048',
+            'categoria_id' => 'required|exists:categorias,id'
+        ]);
 
-        $produtos = new Produto();
+        $produto = new Produto();
 
+        $produto->nome = $requisicao->nome;
+        $produto->valor = $requisicao->valor;
+        $produto->foto = '';
+        $produto->categoria_id = $requisicao->categoria_id;
+        $produto->descricao = $requisicao->descricao;
 
-        $produtos->nome = $requisicao->nome;
-        $produtos->valor = $requisicao->valor;
-        $produtos->foto = $requisicao->foto;
-        $produtos->categoria_id = $requisicao->categoria_id;
-        $produtos->descricao = $requisicao->descricao;
-        $produtos->save();
+        if($requisicao->hasFile('foto')){
+            $arquivo = $requisicao->file('foto')->store('produtos', ['disk' => 'public']);
 
+            if($arquivo)
+                $produto->foto = $arquivo;
+        }
 
-        return redirect()->route('produtos.view',$produtos->id);
+        $produto->save();
+
+        return redirect()->route('produtos.view', $produto->id);
     }
 
 
     public function show(Produto $produtos)
     {
-
-
-
         return view('produtos.view',compact('produtos'));
     }
 

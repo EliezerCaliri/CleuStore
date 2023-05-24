@@ -4,6 +4,7 @@
         <title>CleuStore</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         @vite(['resources/sass/app.scss'])
 
         <title>@yield('title') {{ config('app.name') }}</title>
@@ -45,11 +46,11 @@
                 <div class="container px-4 px-lg-5 my-5">
                     <div class="text-center">
                         <h1 class="display-4 fw-bolder text-white py-2"></h1>
-                        <img src="../img/logocleustore.png" alt="">
+                        <img class="img-fluid" src="../img/logocleustore.png" alt="">
                     </div>
                 </div>
             </header>
-                    
+
             @yield('conteudo')
     </body>
 
