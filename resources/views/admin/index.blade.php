@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.login')
 
 @section('title', 'Tela de login de Sistema')
 

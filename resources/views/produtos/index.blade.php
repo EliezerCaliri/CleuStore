@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.sidebar')
 
 @section('title', 'Lista de Produtos')
 

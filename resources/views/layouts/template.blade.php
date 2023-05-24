@@ -44,7 +44,7 @@
             <header class="brand" style="background-color: #131313;">
                 <div class="container px-4 px-lg-5 my-5">
                     <div class="text-center">
-                        <h1 class="display-4 fw-bolder text-white py-2">CleuStore</h1>
+                        <h1 class="display-4 fw-bolder text-white py-2"></h1>
                         <img src="../img/logocleustore.png" alt="">
                     </div>
                 </div>

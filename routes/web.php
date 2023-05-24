@@ -9,6 +9,7 @@ use App\Http\Controllers\{
     CategoriaController,
     LoginController,
     CadastroAdmController,
+    CarrinhoController,
     HomeController,
     UsuarioController
 };
@@ -55,5 +56,10 @@ Route::controller(LoginController::class)->group(function (){
 Route::controller(UsuarioController::class)->group(function (){       
     route::get('/login/logar','usuario')->name('usuario.logar');
     route::post('/login/logar','store')->name('usuario.store');
+});
+
+Route::controller(CarrinhoController::class)->group(function (){
+    route::get('/carrinho','carrinhoLista')->name('site.carrinho');
+    route::post('/carrinho','adicionaCarrinho')->name('site.addcarrinho');
 });
 

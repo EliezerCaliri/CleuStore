@@ -17,8 +17,8 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "bootstrap": "^5.2.3",
         "icons": "^1.0.0",
+        "mdb-ui-kit": "^6.3.0",
         "sass": "^1.60.0"
     },
     "name": "cleustoretcc-master-master",

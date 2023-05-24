@@ -11,8 +11,8 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $administrador = Administrador::all();
-        return view ('admin.paineladmin',['admins' => $administrador]);
+        $administradores = Administrador::all();
+        return view ('admin.paineladmin',compact ('administradores'));
     }
 
     public function showloginform () 
