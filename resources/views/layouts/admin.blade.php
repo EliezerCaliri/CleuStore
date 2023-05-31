@@ -83,19 +83,19 @@
                             class="fas fa-lock fa-fw me-3"></i><span>Lista de Produtos</span></a>
                     <a href="{{ route('produtos.create') }}" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-store"></i><span>CadastroDeProdutos</span></a>
-                    <a href="{{ route('categoria.index') }}" class="list-group-item list-group-item-action py-2 ripple">
-                        <i class="fas fa-bars"></i><span>Categoria</span>
+                    <a href="{{ route('categoria.index') }}" class="list-group-item list-group-item-action py-2 ripple"><i 
+                        class="fas fa-bars"></i> <span>Categoria</span>
                     </a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span></a>
+                            class="fas fa-chart-bar fa-fw me-3"></i><span>Clientes</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-globe fa-fw me-3"></i><span>International</span></a>
+                            class="fas fa-globe fa-fw me-3"></i><span>Registros</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-building fa-fw me-3"></i><span>Partners</span></a>
+                            class="fas fa-building fa-fw me-3"></i><span>Estoque</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-calendar fa-fw me-3"></i><span>Calendar</span></a>
+                            class="fas fa-calendar fa-fw me-3"></i><span>Calendario</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-                            class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+                            class="fas fa-users fa-fw me-3"></i><span>Promoções </span></a>
                     <a href="{{ route('admin.logout') }}" class="list-group-item list-group-item-action py-2 ripple">
                         <i class="fas fa-door-open"></i><span>Logout</span></a>
                 </div>
