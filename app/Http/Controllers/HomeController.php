@@ -37,4 +37,8 @@ class HomeController extends Controller
 
         return view('home.lista-produtos', compact('listaCategorias', 'produtos', 'filtros'));
     }
+
+    public function details(Produto $produto, $slug) {
+        return view('home.details', compact('produto'));    
+    }
 }

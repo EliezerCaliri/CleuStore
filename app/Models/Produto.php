@@ -8,4 +8,10 @@ class Produto extends Model
 {
     protected $table ="produtos";
     protected $fillable =['nome', 'foto', 'descricao', 'valor', 'categoria_id'];
+
+
+    public function getSlugAttribute()
+    {
+        return $this->nome;
+    }
 }

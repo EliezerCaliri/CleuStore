@@ -27,6 +27,7 @@ use App\Http\Controllers\{
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::any('/lista-produtos', [HomeController::class, 'listaProdutos'])->name('home.listaProdutos');
+Route::get('/item/{produto}/{slug}',[HomeController::class, 'details'])->name('home.details');
 // Grupo que exige auteticação do usuário
 Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
