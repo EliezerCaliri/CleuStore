@@ -20,7 +20,7 @@
             </div>
             <a class="btn btn-light" href="{{ route('produtos.create') }}">Criar um novo produto</a>
             <a class="btn btn-light" href="{{ route('produtos.index') }}">Voltar a lista de produtos</a>
-            <a class="btn btn-light" href="#">Vizualizar Produto</a>
+            <a class="btn btn-light" href="{{ route('home.details', [$produtos->id, $produtos->slug]) }}">Vizualizar Produto</a>
             <a class="btn btn-warning" href="{{ route('produtos.edit', $produtos->id) }}">Editar este produto</a>
             
 

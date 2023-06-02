@@ -15,10 +15,7 @@
         background-color: #e0dca0;
         font-weight: bold;
         }
-        *{
-            background: rgb(36,34,0);
-background: linear-gradient(180deg, rgba(36,34,0,0.165703781512605) 0%, rgba(200,255,9,0.33) 10%, rgba(211,255,0,1) 66%);
-        }
+ 
     </style>
     <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
