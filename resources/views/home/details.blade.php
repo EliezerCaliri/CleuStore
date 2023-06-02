@@ -4,7 +4,7 @@
 
 @section('conteudo')
     <div class="col s12 m6">
-        <img src="{{ $produto->imagem }}" class="responsive-img">
+        <img src="/storage/{{ $produto->foto }}" class="responsive-img">
     </div>
 
     <div class="col s12 m6">

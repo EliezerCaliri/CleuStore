@@ -15,13 +15,15 @@
                     <img src="/storage/{{ $produtos->foto }}" class="card-img-top" />
                     <div class="card-body">
                         <h6 class="card-title">{{ $produtos->nome}} - R$ {{ $produtos->valor}}</h6>
-                        <a href="#" class="btn btn-sm btn-secondary">Adicionar ao Carrinho</a>
                     </div>
                 </div>
             </div>
-
+            <a class="btn btn-light" href="{{ route('produtos.create') }}">Criar um novo produto</a>
             <a class="btn btn-light" href="{{ route('produtos.index') }}">Voltar a lista de produtos</a>
+            <a class="btn btn-light" href="#">Vizualizar Produto</a>
             <a class="btn btn-warning" href="{{ route('produtos.edit', $produtos->id) }}">Editar este produto</a>
+            
+
 
             <form method="POST" action="{{ route('produtos.destroy', $produtos->id) }}">
                 @csrf

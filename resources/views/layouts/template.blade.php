@@ -10,6 +10,16 @@
         <title>@yield('title') {{ config('app.name') }}</title>
     </head>
 
+    <style>
+        #navbarSupportedContent{
+        background-color: #e0dca0;
+        font-weight: bold;
+        }
+        *{
+            background: rgb(36,34,0);
+background: linear-gradient(180deg, rgba(36,34,0,0.165703781512605) 0%, rgba(200,255,9,0.33) 10%, rgba(211,255,0,1) 66%);
+        }
+    </style>
     <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container px-4 px-lg-5">
@@ -18,9 +28,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/lista-produtos">Produtos</a></li>
                             <li class="nav-item"><a class="nav-link" href="/usuario/novo">Cadastre-se</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/categoria">Categoria</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

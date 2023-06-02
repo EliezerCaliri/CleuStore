@@ -27,7 +27,7 @@
 
                 <div class="mb-3">
                     <label>Foto</label>
-                    <input type="#" name="foto" class="form-control" value="{{ $produtos->idade }}">
+                    <input type="file" name="foto" class="form-control" value="{{ $produtos->foto }}">
                 </div>
 
 
