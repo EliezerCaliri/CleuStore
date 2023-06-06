@@ -38,6 +38,7 @@ Route::middleware(['auth'])->group(function (){
     Route::post('/produtos', [ProdutosController::class, 'store'])->name('produtos.store');
     Route::put('/produtos/{produto}', [ProdutosController::class, 'update'])->name('produtos.update');
     Route::delete('/produtos/{produto}', [ProdutosController::class, 'destroy'])->name('produtos.destroy');
+    Route::get('/listacliente',[UsuarioController::class],'lista')->name('admin.clientes');
 
     Route::get('/categoria', [CategoriaController::class, 'create'])->name('categoria.index');
         Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store');

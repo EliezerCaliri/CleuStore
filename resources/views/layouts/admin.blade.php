@@ -86,7 +86,7 @@
                     <a href="{{ route('categoria.index') }}" class="list-group-item list-group-item-action py-2 ripple"><i 
                         class="fas fa-bars"></i> <span>Categoria</span>
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                    <a href="{{route('admin.clientes')}}" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-chart-bar fa-fw me-3"></i><span>Clientes</span></a>
                     <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
                             class="fas fa-globe fa-fw me-3"></i><span>Registros</span></a>

@@ -14,16 +14,21 @@ class LoginController extends Controller
 
     public function store(Request $request){    
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed'
+            'firstname' => 'required',
+            'lastname' => 'required|email',
+            'email' => 'required|unique',
+            'number' =>'required',
+            'password' =>'required|confirmed',
+            'Confirmpassword'=>'required'
         ]);      
 
         $usuarios = new Usuario();
 
 
-        $usuarios->name = $request->name;
-        $usuarios->email = $request->email;
+        $usuarios->firstname = $request->firstname;
+        $usuarios->lastname = $request->lastname;
+        $usuarios->email= $request->email;
+        $usuarios-> number = $request->number;
         $usuarios->password = Hash::make($request->password);
 
         $usuarios->save();

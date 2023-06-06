@@ -5,6 +5,21 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+rel="stylesheet"
+/>
         @vite(['resources/sass/app.scss'])
 
         <title>@yield('title') {{ config('app.name') }}</title>
@@ -15,7 +30,7 @@
         background-color: #e0dca0;
         font-weight: bold;
         }
- 
+
     </style>
     <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,6 +58,20 @@
                                 Cart
                                 <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                             </button>
+                            @auth
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-dark dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+                                  Olá {{auth()->user()->name}}
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="{{route('admin.logout')}}">Sair</a></li>
+                                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                  <li><hr class="dropdown-divider" /></li>
+                                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                              </div>
+                            @endauth
                         </form>
                     </div>
                 </div>
