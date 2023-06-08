@@ -48,7 +48,7 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Adicione ao carrinho</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.carrinho') }}">Adicione ao carrinho</a></div>
                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.details', [$produto->id, $produto->slug]) }}">Ver Detalhes</a></div>
                                 </div>
                             </div>

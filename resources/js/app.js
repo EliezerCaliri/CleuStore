@@ -37,3 +37,5 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+
+import * as mdb from 'mdb-ui-kit'; // lib

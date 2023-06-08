@@ -62,7 +62,7 @@ Route::controller(UsuarioController::class)->group(function (){
 });
 
 Route::controller(CarrinhoController::class)->group(function (){
-    route::get('/carrinho','carrinhoLista')->name('site.carrinho');
+    route::get('/carrinho','carrinhoLista')->name('home.carrinho');
     route::post('/carrinho','adicionaCarrinho')->name('site.addcarrinho');
 });
 
