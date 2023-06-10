@@ -14,8 +14,20 @@
             <div class="card-body">
               <h5 class="card-title">{{$produto->nome}}</h5>
               <p class="card-text">{{$produto->descricao}}</p>
-              <button type="button" class="btn btn-success">Adicionar ao Carrinho</button>
+              <p class="card-text">R${{$produto->valor}}</p>
+              
             </div>
-          </div>
-    </div>
+            <form action="{{route('site.addcarrinho')}}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" name="id" value="{{$produto->id}}">
+              <input type="hidden" name="name" value="{{$produto->nome}}">
+              <input type="hidden" name="price" value="{{$produto->valor}}">
+              <input type="number" name="qnt" value="1">
+              <input type="hidden" name="image" value="/storage/{{$produto->foto}}">
+            </form>
+            
+      </div>
+      <button type="button" class="btn btn-success"><a href="{{route('site.addcarrinho')}}">Adicionar ao carrinho</a></button>
+            </div>
+
 @endsection
