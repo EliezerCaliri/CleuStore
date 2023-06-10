@@ -7,20 +7,24 @@ use Illuminate\Http\Request;
 
 class CarrinhoController extends Controller
 {
-    public function carrinhoLista() {
+    public function carrinhoLista()
+    {
         $itens = \Cart::getContent();
-        dd($itens);
+        return view('home.carrinho',compact('itens'));
     }
 
-    public function adicionaCarrinho(Request $request){
+    public function adicionaCarrinho(Request $request)
+    {
         \Cart::add([
             'id' => $request->id,
             'name' => $request->name,
             'price' => $request->price,
             'quantity' => $request->qnt,
-            'atributes' => array(
-                'image' => $request -> img
+            'attributes' => array(
+                'image' => $request->img
             )
-            ]);
+        ]);
+
+        return redirect()->route('home.carrinho');
     }
 }
