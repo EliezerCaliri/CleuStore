@@ -12,13 +12,14 @@
     }
 </style>
         <div class="container">
-            <form action="#" method="POST">
-                <button type="file" value="">Escolha sua foto de Perfil</button>
-                <img src="#" class="img-fluid"/>
-                <button>Alterar nome</button>
-                <button>Alterar senha</button>
+            <form action="{{route('admin.edit',auth()->user()->name)}}">
+                @method('PUT')
+                <input type="text" value="{{auth()->user()->name}}">
+                <button type="submit">Alterar</button>
             </form>
-
+            <h1>Editar o Admin {{ auth()->user()->name }}</h1>
+            <h1>Editar a foto de perfil de {{auth()->user()->name}}</h1>
+            <h1>Editar a senha de {{auth()->user()->name}}</h1>
         </div>
 
 @endsection

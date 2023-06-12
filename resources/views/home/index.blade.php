@@ -48,7 +48,16 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.carrinho') }}">Adicione ao carrinho</a></div>
+                                    <form action="{{route('site.addcarrinho')}} " method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $produto->id }}">
+                                        <input type="hidden" name="name" value="{{ $produto->nome }}">
+                                        <input type="hidden" name="price" value="{{ $produto->valor }}">
+                    
+                                        <input type="hidden" name="image" value="/storage/{{ $produto->foto }}">
+                                        
+                                        <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
+                                </form>
                                     <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.details', [$produto->id, $produto->slug]) }}">Ver Detalhes</a></div>
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Carrinho;
 use App\Models\Categoria;
 use App\Models\Produto;
 use Illuminate\Http\Request;
@@ -41,4 +41,5 @@ class HomeController extends Controller
     public function details(Produto $produto, $slug) {
         return view('home.details', compact('produto'));    
     }
+    
 }

@@ -31,6 +31,7 @@ Route::get('/item/{produto}/{slug}',[HomeController::class, 'details'])->name('h
 // Grupo que exige auteticação do usuário
 Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::any('/admin/edit', [AdminController::class, 'edit'])->name('admin.edit');
     Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
     Route::get('/produtos/novo', [ProdutosController::class, 'create'])->name('produtos.create');
     Route::get('/produtos/{produtos}', [ProdutosController::class, 'show'])->name('produtos.view');
@@ -51,6 +52,7 @@ Route::get('/entrar', [AdminController::class, 'showloginform'])->name('login');
 Route::get('/sair', [AdminController::class, 'logout'])->name('admin.logout');
 Route::post('/entrar', [AdminController::class, 'store'])->name('admin.login.store');
 
+
 Route::controller(LoginController::class)->group(function (){
     Route::get('/usuario/novo','index')->name('cadastro.index');
     Route::post('/usuario','store')->name('login.store');
@@ -63,6 +65,9 @@ Route::controller(UsuarioController::class)->group(function (){
 
 Route::controller(CarrinhoController::class)->group(function (){
     route::get('/carrinho','carrinhoLista')->name('home.carrinho');
-    route::post('/carrinho','adicionaCarrinho')->name('site.addcarrinho');
+    route::POST('/carrinho','adicionaCarrinho')->name('site.addcarrinho');
+    route::any('/remove','removeCarrinho')->name('site.removecarrinho');
+    route::any('/refresh','atualizaCarrinho')->name('site.atualizacarrinho');
+    route::any('/limpar','limparCarrinho')->name('home.limparcarrinho');
 });
 

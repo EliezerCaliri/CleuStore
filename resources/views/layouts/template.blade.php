@@ -14,6 +14,8 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css" rel="stylesheet" />
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <title>@yield('title') {{ config('app.name') }}</title>
 </head>
@@ -28,7 +30,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+            <a class="navbar-brand" href="#!">CleuStore</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -54,8 +56,8 @@
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
                         <i class="bi-cart-fill me-1"></i>
-                        Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        <a href="{{route('home.carrinho')}}">Carrinho</a>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">{{\Cart::getContent()->count()}}</span>
                     </button>
                     @auth
                         <div class="btn-group">
@@ -66,7 +68,7 @@
 
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Sair</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="{{route('admin.index')}}">Voltar a admin</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 <li>
                                     <hr class="dropdown-divider" />
