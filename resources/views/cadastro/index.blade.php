@@ -6,7 +6,7 @@
 @section('conteudo')
 
 <style>
-    
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
         *{
@@ -22,7 +22,7 @@
             align-items: center;
             background: #0c0ce94d;
         }
-        
+
         .form {
             display: flex;
             justify-content: center;
@@ -135,41 +135,41 @@
                         <button> <a href="{{ route('usuario.logar')}}"> Entrar</a></button>
                     </div>
                 </div>
-                
+
                 <div class="input-group">
                     <div class="input-box">
                         <label for="firstname"> Primeiro Nome</label>
-                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome" required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="text" id="firstname" name="firstname" placeholder="Digite seu primeiro nome" required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="lastname"> Sobrenome</label>
-                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu ultimo nome"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="text" id="lastname" name="lastname" placeholder="Digite seu ultimo nome"required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="email"> Email</label>
-                        <input type="email" id="email" name="email" placeholder="Digite seu email"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="email" id="email" name="email" placeholder="Digite seu email"required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
-                    
+
                     <div class="input-box">
                         <label for="number"> Numero de Telefone</label>
-                        <input type="tel" id="number" name="number" placeholder="Digite seu numero" required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="tel" id="number" name="number" placeholder="Digite seu numero" required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="password"> Senha</label>
-                        <input type="password" id="password" name="password" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
                     <div class="input-box">
                         <label for="Confirmpassword"> Confirme sua Senha</label>
-                        <input type="password" id="Confirmpassword" name="Confirmpassword" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')" 
+                        <input type="password" id="Confirmpassword" name="password_confirmation" placeholder="Digite sua senha"required oninvalid="this.setCustomValidity('Campo Obrigatório')"
 onchange="try{setCustomValidity('')}catch(e){}">
                     </div>
 
@@ -179,6 +179,6 @@ onchange="try{setCustomValidity('')}catch(e){}">
                 </div>
             </form>
 
-        </div> 
+        </div>
  </div>
 @endsection

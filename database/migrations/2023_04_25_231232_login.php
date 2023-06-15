@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string("lastname", 100);
             $table->string("email", 100) -> unique();
             $table->string("number", 30);
-            $table->string("password", 15);
-            $table->string("Confirmpassword", 15);
+            $table->string("password", 255);
             $table->timestamps();
 
         });

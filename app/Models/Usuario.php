@@ -7,12 +7,14 @@ use Illuminate\Foundation\Auth\User as Autenticatable;
 
 class Usuario extends Autenticatable
 {
-    protected $table ="usuarios";
+    protected $table ="login";
+
     protected $fillable = [
-        'name', 
-        'email', 
-        'password', 
-        'password_confirmation'
+        'firstname',
+        'lastname',
+        'email',
+        'number',
+        'password'
     ];
 
     public function getAuthPassword()

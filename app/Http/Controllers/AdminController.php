@@ -15,7 +15,7 @@ class AdminController extends Controller
         return view ('admin.paineladmin',compact ('administradores'));
     }
 
-    public function showloginform () 
+    public function showloginform ()
     {
         return view ('admin.index');
     }
@@ -45,9 +45,17 @@ class AdminController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
- 
-    public function edit(){
-        
+
+    public function edit(Request $request, Administrador $admin){
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $admin->name = $request->name;
+
+        $admin->save();
+
+        return redirect()->route('admin.index');
     }
 
 }

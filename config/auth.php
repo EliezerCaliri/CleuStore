@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'administradores',
         ],
+        'usuario' => [
+            'driver' => 'session',
+            'provider' => 'usuarios',
+        ],
     ],
 
     /*
@@ -63,6 +67,11 @@ return [
         'administradores' => [
             'driver' => 'eloquent',
             'model' => App\Models\Administrador::class,
+        ],
+
+        'usuarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario::class,
         ],
 
         // 'users' => [
@@ -93,6 +102,12 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'usuarios' => [
+            'provider' => 'usuarios',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
     ],
 
     /*
@@ -107,5 +122,4 @@ return [
     */
 
     'password_timeout' => 10800,
-
 ];

@@ -10,15 +10,20 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    public function usuario(){
-        return view ('cadastro.login');
+    public function usuario()
+    {
+        return view('cadastro.login');
     }
-    public function lista(){
-       $usuarios = Usuario::all();
-       return view ('admin.clientes', compact('usuarios'));
+
+    public function lista()
+    {
+        $usuarios = Usuario::all();
+        return view('admin.clientes', compact('usuarios'));
     }
-    public function store(Request $request) {
-        $request -> validate([
+
+    public function store(Request $request)
+    {
+        $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
@@ -30,16 +35,17 @@ class UsuarioController extends Controller
             'password' => $request->password,
         ];
 
-        if(!Auth::attempt($credentials)){
+        if (!Auth::attempt($credentials)) {
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
-            return view ('home.index');
+            return view('home.index');
         }
-    
-}
-    public function logout(){
+    }
+
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('home.index');
-}
+    }
 }

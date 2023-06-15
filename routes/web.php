@@ -31,7 +31,8 @@ Route::get('/item/{produto}/{slug}',[HomeController::class, 'details'])->name('h
 // Grupo que exige auteticação do usuário
 Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::any('/admin/edit', [AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('/admin/edit/{admin}', [AdminController::class, 'edit'])->name('admin.edit');
+
     Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos.index');
     Route::get('/produtos/novo', [ProdutosController::class, 'create'])->name('produtos.create');
     Route::get('/produtos/{produtos}', [ProdutosController::class, 'show'])->name('produtos.view');

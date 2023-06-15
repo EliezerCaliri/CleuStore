@@ -12,33 +12,31 @@ class LoginController extends Controller
         return view ('cadastro.index');
     }
 
-    public function store(Request $request){    
+    public function store(Request $request){
         $request->validate([
             'firstname' => 'required',
-            'lastname' => 'required|email',
-            'email' => 'required|unique',
+            'lastname' => 'required',
+            'email' => 'required|unique:usuarios|email',
             'number' =>'required',
             'password' =>'required|confirmed',
-            'Confirmpassword'=>'required'
-        ]);      
+        ]);
 
         $usuarios = new Usuario();
-
 
         $usuarios->firstname = $request->firstname;
         $usuarios->lastname = $request->lastname;
         $usuarios->email= $request->email;
-        $usuarios-> number = $request->number;
+        $usuarios->number = $request->number;
         $usuarios->password = Hash::make($request->password);
 
         $usuarios->save();
 
 
         return redirect()->route('usuario.logar');
-    
+
     }
 
     public function destroy() {
-        
+
     }
 }
