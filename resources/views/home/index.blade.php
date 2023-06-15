@@ -4,71 +4,76 @@
 
 @section('conteudo')
 
-        <header class="brand" style="background-color: #131313;">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center">
-                    <h1 class="display-4 fw-bolder text-white py-2"></h1>
-                    <img class="img-fluid" src="../img/logocleustore.png" alt="">
-                </div>
+    <header class="brand" style="background-color: #131313;">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center">
+                <h1 class="display-4 fw-bolder text-white py-2"></h1>
+                <img class="img-fluid" src="../img/logocleustore.png" alt="">
             </div>
-        </header>
+        </div>
+    </header>
 
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                @foreach ($categorias as $categoria)
-                    @if ($categoria->produtos->count() < 1)
-                        @continue
-                    @endif
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            @foreach ($categorias as $categoria)
+                @if ($categoria->produtos->count() < 1)
+                    @continue
+                @endif
 
-                    <h1>{{ $categoria->categorias }}</h1>
+                <h1>{{ $categoria->categorias }}</h1>
 
-                    @foreach ($categoria->topProdutos as $produto)
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
-                            <div class="card h-100">
-                                <!-- Sale badge-->
-                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                                <!-- Product image-->
-                                <img class="card-img-top" src="/storage/{{ $produto->foto }}" alt="..." />
-                                <!-- Product details-->
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <!-- Product name-->
-                                        <h5 class="fw-bolder">{{ $produto->nome }}</h5>
-                                        <!-- Product reviews-->
-                                        <div class="d-flex justify-content-center small text-warning mb-2">
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                            <div class="bi-star-fill"></div>
-                                        </div>
-                                        <!-- Product price-->
-                                        R$ {{ $produto->valor }}
+                @foreach ($categoria->topProdutos as $produto)
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
+                        <div class="card h-100">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                            </div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="/storage/{{ $produto->foto }}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{ $produto->nome }}</h5>
+                                    <!-- Product reviews-->
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
                                     </div>
+                                    <!-- Product price-->
+                                    R$ {{ $produto->valor }}
                                 </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <form action="{{route('site.addcarrinho')}} " method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <input type="hidden" name="id" value="{{ $produto->id }}">
-                                        <input type="hidden" name="name" value="{{ $produto->nome }}">
-                                        <input type="hidden" name="price" value="{{ $produto->valor }}">
-                    
-                                        <input type="hidden" name="image" value="/storage/{{ $produto->foto }}">
-                                        
-                                        <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <form action="{{ route('site.addcarrinho') }} " method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $produto->id }}">
+                                    <input type="hidden" name="name" value="{{ $produto->nome }}">
+                                    <input type="hidden" name="price" value="{{ $produto->valor }}">
+
+                                    <input type="hidden" name="image" value="/storage/{{ $produto->foto }}">
+                                    <input type="hidden" name="qnt" value="1">
+
+                                    <button type="submit" class="btn btn-success">Adicionar ao Carrinho</button>
                                 </form>
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.details', [$produto->id, $produto->slug]) }}">Ver Detalhes</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                        href="{{ route('home.details', [$produto->id, $produto->slug]) }}">Ver Detalhes</a>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 @endforeach
-                <div class="row gx-4 gx-lg-5 justify-content-center">
+            @endforeach
+            <div class="row gx-4 gx-lg-5 justify-content-center">
 
 
 
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 @endsection

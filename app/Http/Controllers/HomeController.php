@@ -24,7 +24,7 @@ class HomeController extends Controller
         $filtros['busca'] = $request->busca;
         $filtros['categoria_id'] = $request->categoria_id;
 
-        $produtos = Produto::select('id', 'nome', 'foto', 'valor')
+        $produtos = Produto::select('id', 'nome', 'foto', 'descricao', 'valor', 'categoria_id')
             ->when($request->categoria_id, function ($query, $categoria) {
                 $query->where('categoria_id', $categoria);
             })
@@ -39,7 +39,7 @@ class HomeController extends Controller
     }
 
     public function details(Produto $produto, $slug) {
-        return view('home.details', compact('produto'));    
+        return view('home.details', compact('produto'));
     }
-    
+
 }
