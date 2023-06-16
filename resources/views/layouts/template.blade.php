@@ -22,7 +22,6 @@
 
 <style>
     #navbarSupportedContent {
-        background-color: #e0dca0;
         font-weight: bold;
     }
 </style>
