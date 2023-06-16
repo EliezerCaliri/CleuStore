@@ -1,4 +1,4 @@
-@extends('layouts.sidebar')
+@extends('layouts.template')
 
 
 @section('title', 'Tela de Login Usuario')
@@ -246,7 +246,7 @@ input[type="submit"]:hover{
           <h1>Login</h1> 
           <p> 
             <label for="email_login">Seu e-mail</label>
-            <input id="email" name="email" required="required" type="text" placeholder="contato@htmlecsspro.com"/>
+            <input id="email" name="email" required="required" type="text" placeholder="fulaninho@gmail.com"/>
           </p>
           
           <p> 
@@ -255,12 +255,12 @@ input[type="submit"]:hover{
           </p>
           
           <p> 
-            <input type="checkbox" name="manterlogado" id="manterlogado" value="" /> 
+            <input type="checkbox" name="manterlogado" id="manterlogado"  /> 
             <label for="manterlogado">Manter-me logado</label>
           </p>
           
           <p> 
-            <input type="submit" value="Logar" action ="{{ route ('home.index') }}"> 
+            <input type="submit" value="Logar" action ="/"> 
           </p>
           
           <p class="link">

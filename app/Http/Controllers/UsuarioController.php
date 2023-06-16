@@ -39,7 +39,7 @@ class UsuarioController extends Controller
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
-            return view('home.index');
+            return redirect()->route('home.index');
         }
     }
 
