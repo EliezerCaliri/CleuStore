@@ -24,23 +24,24 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email',
-            'number' => 'required',
-            'password' => 'required',
+            'email' => 'required',
+            'password' => 'required'
         ]);
+
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::guard('usuario')->attempt($credentials)) {
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
-            return redirect()->route('home.index');
+
+            return redirect()->route('usuario.logar');
         }
+
+        return redirect()->route('home.index');
     }
 
     public function logout()

@@ -21,4 +21,9 @@ class Usuario extends Autenticatable
     {
         return $this->password;
     }
+
+    public function getNomeCompletoAttribute()
+    {
+        return $this->firstname;
+    }
 }

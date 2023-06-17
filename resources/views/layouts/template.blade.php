@@ -1,3 +1,14 @@
+@php
+    $guards = config('auth.guards');
+
+    foreach ($guards as $guardName => $guardConfig) {
+        if (Auth::guard($guardName)->check()) {
+            $user = Auth::guard($guardName)->user();
+            break;
+        }
+    }
+@endphp
+
 <!doctype html>
 <html lang="pt-br">
 
@@ -58,11 +69,11 @@
                         <a href="{{route('home.carrinho')}}">Carrinho</a>
                         <span class="badge bg-dark text-white ms-1 rounded-pill">{{\Cart::getContent()->count()}}</span>
                     </button>
-                    @auth
+                    @if(isset($user))
                         <div class="btn-group">
                             <button type="button" class="btn btn-dark dropdown-toggle" data-mdb-toggle="dropdown"
                                 aria-expanded="false">
-                                Olá {{ auth()->user()->name }}
+                                Olá {{ $user->nome_completo }}
                             </button>
 
                             <ul class="dropdown-menu">
@@ -75,7 +86,7 @@
                                 <li><a class="dropdown-item" href="#">Separated link</a></li>
                             </ul>
                         </div>
-                    @endauth
+                    @endif
                 </form>
             </div>
         </div>

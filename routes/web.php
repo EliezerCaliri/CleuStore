@@ -25,9 +25,12 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::any('/lista-produtos', [HomeController::class, 'listaProdutos'])->name('home.listaProdutos');
-Route::get('/item/{produto}/{slug}',[HomeController::class, 'details'])->name('home.details');
+Route::middleware(['web'])->group(function (){
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+    Route::any('/lista-produtos', [HomeController::class, 'listaProdutos'])->name('home.listaProdutos');
+    Route::get('/item/{produto}/{slug}',[HomeController::class, 'details'])->name('home.details');
+});
+
 // Grupo que exige auteticação do usuário
 Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -70,5 +73,6 @@ Route::controller(CarrinhoController::class)->group(function (){
     route::any('/remove','removeCarrinho')->name('site.removecarrinho');
     route::any('/refresh','atualizaCarrinho')->name('site.atualizacarrinho');
     route::any('/limpar','limparCarrinho')->name('home.limparcarrinho');
+    route::any('/finish','finish')->name('home.finish');
 });
 

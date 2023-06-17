@@ -243,6 +243,8 @@ input[type="submit"]:hover{
       <!--FORMULÁRIO DE LOGIN-->
       <div id="login">
         <form method="POST" action="{{ route('usuario.store') }}"> 
+          @csrf
+
           <h1>Login</h1> 
           <p> 
             <label for="email_login">Seu e-mail</label>
@@ -258,9 +260,13 @@ input[type="submit"]:hover{
             <input type="checkbox" name="manterlogado" id="manterlogado"  /> 
             <label for="manterlogado">Manter-me logado</label>
           </p>
+
+          @error('email')
+            {{ $message }}
+          @enderror
           
-          <p> 
-            <input type="submit" value="Logar" action ="/"> 
+          <p>
+              <button type="submit" class="btn btn-outline-dark mt-auto">Logar</button>
           </p>
           
           <p class="link">

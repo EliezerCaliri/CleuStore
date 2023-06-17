@@ -30,6 +30,10 @@
   #textproduto , #textcarrinho {
     font-weight: bold;
   }
+  #content{
+    align-items: center;
+    align-content: center;
+  }
 </style>
     <form action="{{ route('home.listaProdutos') }}" method="GET">
         @csrf
@@ -54,10 +58,10 @@
         <input type="submit" value="Pesquisar" id="buttonpesquisar">
     </form>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
         @foreach ($produtos as $produto)
-            <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
-                <div class="card h-100">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-5" >
+                <div class="card h-100" id="content">
                     <!-- Sale badge-->
                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                     <!-- Product image-->
@@ -81,7 +85,16 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent" id="textcarrinho">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('home.carrinho') }}">Adicione ao carrinho</a></div>
+                        <form action="{{ route('site.addcarrinho') }} " method="POST"
+                        enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $produto->id }}">
+                        <input type="hidden" name="name" value="{{ $produto->nome }}">
+                        <input type="hidden" name="price" value="{{ $produto->valor }}">
+
+                        <input type="hidden" name="image" value="/storage/{{ $produto->foto }}">
+                        <input type="hidden" name="qnt" value="1">
+                        <button type="submit" class=" btn btn-outline-dark mt-auto">Adicionar ao Carrinho</button>
                     </div>
                 </div>
             </div>

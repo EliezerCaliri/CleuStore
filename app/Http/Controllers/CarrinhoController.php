@@ -48,4 +48,9 @@ class CarrinhoController extends Controller
         \Cart::clear();
         return redirect()->route('home.carrinho')->with('Sucesso','Carrinho limpo com sucesso');
     }
+
+    public function finish (){
+        \Cart::clear();
+        return redirect()->route('home.carrinho')->with('Finalizado','Seu pedido foi enviado com sucesso.');
+    }
 }

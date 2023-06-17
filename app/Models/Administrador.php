@@ -19,4 +19,9 @@ class Administrador extends Autenticatable
     {
         return $this->password;
     }
+
+    public function getNomeCompletoAttribute()
+    {
+        return $this->name;
+    }
 }

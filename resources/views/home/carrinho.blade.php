@@ -20,6 +20,15 @@
     }
 </style>
 <div class="container">
+    @if($mensagem = Session::get('Finalizado'))
+    <div class="card text-white bg-success mb-3" style="max-width: 100rem;">
+        <div class="card-header">Alerta</div>
+        <div class="card-body">
+          <h5 class="card-title">Parabéns!</h5>
+          <p class="card-text">Seu pedido foi enviado com sucesso</p>
+        </div>
+    </div>
+    @endif
     @if($mensagem = Session::get('Sucesso'))
     <div class="card text-white bg-success mb-3" style="max-width: 100rem;">
         <div class="card-header">Alerta</div>
@@ -38,6 +47,7 @@
           <h4 class="card-text">Aproveite para encher de coisas</h4>
         </div>
     </div>
+    <button id="btncontcomp"type="button" class="btn btn-success"><a href="{{route('home.index')}}">Continuar Comprando</a></button>
     @else
     <h5>Seu carrinho possui {{ $itens->count() }} produtos.</h5>
   <table class="striped">
@@ -78,9 +88,9 @@
   <div class="row container center">
 
     <button type="button" class="btn btn-danger"> <a href="{{route('home.limparcarrinho')}}">Limpar Carrinho</a></button>
-    <button type="button" class="btn btn-warning">Finalizar Pedido</button>
+    <button type="button" class="btn btn-warning"><a href="https://wa.me/5518981050472">Finalizar Pedido</a></button>
+    <button type="button" class="btn btn-success"><a href="{{route('home.index')}}">Continuar Comprando</a></button>
   </div>
 </div>
     @endif
-    <button id="btncontcomp"type="button" class="btn btn-success"><a href="{{route('home.index')}}">Continuar Comprando</a></button>
 @endsection
