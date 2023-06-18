@@ -60,11 +60,11 @@ Route::post('/entrar', [AdminController::class, 'store'])->name('admin.login.sto
 Route::controller(LoginController::class)->group(function (){
     Route::get('/usuario/novo','index')->name('cadastro.index');
     Route::post('/usuario','store')->name('login.store');
-    Route::get('/logout','destroy')->name('login.destroy');
 });
 Route::controller(UsuarioController::class)->group(function (){
     route::get('/login/logar','usuario')->name('usuario.logar');
     route::post('/login/logar','store')->name('usuario.store');
+    Route::get('/logout','logout')->name('login.logout');
 });
 
 Route::controller(CarrinhoController::class)->group(function (){

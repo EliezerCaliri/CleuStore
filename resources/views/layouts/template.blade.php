@@ -77,7 +77,8 @@
                             </button>
 
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Sair</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Sair Admin</a></li>
+                                <li><a class="dropdown-item" href="{{route('login.logout')}}">Sair Usuario</a></li>
                                 <li><a class="dropdown-item" href="{{route('admin.index')}}">Voltar a admin</a></li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 <li>
