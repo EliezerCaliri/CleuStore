@@ -18,8 +18,10 @@ return new class extends Migration
             $table->decimal("valor", 10,2);
             $table->string("foto", 100)->nullable();
             $table->string("descricao", 255)->nullable();
-            $table->foreignIdFor(Categoria::class)->references('id')->on('categorias');
+            $table->foreignIdFor(Categoria::class)->references('id')->on('categorias')->onDelete('cascade');
             $table->timestamps();
+
+
         });
     }
 

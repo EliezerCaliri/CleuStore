@@ -6,7 +6,5 @@ use Illuminate\Http\Request;
 
 class AdminPerfilController extends Controller
 {
- public function store(){
-    
- }
+
 }

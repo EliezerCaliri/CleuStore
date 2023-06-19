@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Administrador;
+use App\Models\Usuario;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,6 +57,12 @@ class AdminController extends Controller
         $admin->save();
 
         return redirect()->route('admin.index');
+    }
+
+    public function lista()
+    {
+        $clientes = Usuario::all();
+        return view ('admin.listaclientes',compact ('clientes'));
     }
 
 }

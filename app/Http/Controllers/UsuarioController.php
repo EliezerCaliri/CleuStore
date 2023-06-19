@@ -15,10 +15,10 @@ class UsuarioController extends Controller
         return view('cadastro.login');
     }
 
-    public function lista()
+    public function perfil()
     {
         $usuarios = Usuario::all();
-        return view('admin.clientes', compact('usuarios'));
+        return view('cadastro.cliente', compact('usuarios'));
     }
 
     public function store(Request $request)
@@ -41,12 +41,27 @@ class UsuarioController extends Controller
             return redirect()->route('usuario.logar');
         }
 
-        return redirect()->route('home.index');
+        return redirect()->route('cadastro.cliente');
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect()->route('usuario.logar');
+    }
+
+    public function edit(Usuario $usuarios){
+        
+        
+        return view('cadastro.edit', compact('usuarios'));
+    }
+    public function update(Request $request, Usuario $usuario){
+        
+        
+        $usuario->update($request->all());
+        
+        
+        return redirect()->route('cadastro.cliente',$usuario->id);
+
     }
 }

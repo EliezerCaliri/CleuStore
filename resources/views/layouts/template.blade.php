@@ -49,19 +49,10 @@
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/lista-produtos">Produtos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/usuario/novo">Cadastre-se</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#!">All Products</a></li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                            <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/login/logar">Faça Login</a></li>
+                    @if(isset($user))
+                    <li class="nav-item"><a class="nav-link" href="/usuario/perfil">Seu Perfil</a></li>
+                    @endif
                 </ul>
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
@@ -80,11 +71,6 @@
                                 <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Sair Admin</a></li>
                                 <li><a class="dropdown-item" href="{{route('login.logout')}}">Sair Usuario</a></li>
                                 <li><a class="dropdown-item" href="{{route('admin.index')}}">Voltar a admin</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#">Separated link</a></li>
                             </ul>
                         </div>
                     @endif

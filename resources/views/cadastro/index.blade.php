@@ -175,7 +175,7 @@ onchange="try{setCustomValidity('')}catch(e){}">
 
                 </div>
                 <div class="continue-button">
-                    <button type="submit"><a href="{{route('usuario.store')}}">Cadastrar</a></button>
+                    <button type="submit">Cadastrar</button>
                 </div>
             </form>
 
