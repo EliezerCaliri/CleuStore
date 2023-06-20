@@ -19,6 +19,7 @@
                 <th>Sobrenome</th>
                 <th>Email</th>
                 <th>Número</th>
+                <th>Apagar</th>
 
             </tr>
 
@@ -28,6 +29,13 @@
             <td>{{ $cliente->lastname }}</td>
             <td>{{ $cliente->email }}</td>
             <td>{{ $cliente->number }}</td>
+            <td>
+                <form method="POST" action="{{ route('admin.delete',$cliente->id) }}">
+                @csrf
+                @method('DELETE')
+        
+                <input type="submit" value="Apagar" class="btn btn-danger">
+            </form></td>
         </tr>
     @endforeach
 @endsection

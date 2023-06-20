@@ -65,4 +65,9 @@ class AdminController extends Controller
         return view ('admin.listaclientes',compact ('clientes'));
     }
 
+    public function destroy($id) {
+        Usuario::where('id',$id)->delete();
+        return redirect()->route('admin.listaclientes')->with('mensagem','Usuario apagado com sucesso.');
+    }
+
 }

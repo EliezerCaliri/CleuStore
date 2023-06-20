@@ -19,6 +19,8 @@
                     <th>Foto</th>
                     <th>Categoria</th>
                     <th>Descricao</th>
+                    <th>Vizualizar</th>
+                    <th>Apagar</th>
                 </tr>
 
                 @foreach ($produtos as $produto)
@@ -33,6 +35,13 @@
                                 Ver
                             </a>
                         </td>
+                        <td> <form method="POST" action="{{ route('produtos.destroy',$produto->id) }}">
+                            @csrf
+                            @method('DELETE')
+            
+                            <input type="submit" value="Excluir Produto" class="btn btn-danger">
+                        </form>
+                    </td>
                     </tr>
                 @endforeach
             </table>

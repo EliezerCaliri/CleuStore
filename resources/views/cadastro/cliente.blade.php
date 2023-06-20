@@ -24,7 +24,7 @@
      <td>{{ $usuario->lastname }}</td>
      <td>{{ $usuario->email }}</td>
      <td>{{ $usuario->number }}</td>
-     <td><a href="{{route('cadastro.edit',$usuario->id)}}">Alterar</a></td>
+     <td><button class="btn btn-success"><a href="{{route('cadastro.edit',$usuario->id)}}">Alterar</a></button></td>
  </tr>
 @endforeach
 @endsection

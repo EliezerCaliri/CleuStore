@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::put('/admin/edit/{admin}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::get('/listacliente', [AdminController::class, 'lista'])->name('admin.listaclientes');
+    Route::delete('/listacliente/{id}','App\Http\Controllers\AdminController@destroy')->name('admin.delete');
 
  
 
@@ -59,6 +60,7 @@ Route::post('/admin/novo', [CadastroAdmController::class, 'store'])->name('cadas
 Route::get('/entrar', [AdminController::class, 'showloginform'])->name('login');
 Route::get('/sair', [AdminController::class, 'logout'])->name('admin.logout');
 Route::post('/entrar', [AdminController::class, 'store'])->name('admin.login.store');
+
 
 
 

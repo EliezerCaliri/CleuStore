@@ -3,7 +3,15 @@
 @section('title', 'Bem vindo a Cleustore')
 
 @section('conteudo')
+<style>
+    .cardproduto{
+        display: inline-block;
+    }
+    .card-img-top{
+        max-height: 150px;
+    }
 
+</style>
     <header class="brand" style="background-color: #131313;">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center">
@@ -14,7 +22,7 @@
     </header>
 
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
+        <div class="container px-4 px-lg-5 mt-5" >
             @foreach ($categorias as $categoria)
                 @if ($categoria->produtos->count() < 1)
                     @continue
@@ -23,7 +31,7 @@
                 <h1>{{ $categoria->categorias }}</h1>
 
                 @foreach ($categoria->topProdutos as $produto)
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
+                    <div class="cardproduto col-12 col-sm-12 col-md-4 col-lg-3 mb-5">
                         <div class="card h-100">
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
